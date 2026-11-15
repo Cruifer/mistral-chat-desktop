@@ -1,0 +1,35 @@
+{
+  "name": "mistral-chat-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desktop chat app (Electron) powered by the Mistral API",
+  "main": "main.mjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "@mistralai/mistralai": "^3.5.0",
+    "jspdf": "^4.2.1"
+  },
+  "devDependencies": {
+    "electron": "^45.3.2",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "it.mistral.chat",
+    "productName": "Mistral Chat",
+    "files": [
+      "main.mjs",
+      "preload.cjs",
+      "public/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

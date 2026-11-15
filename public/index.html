@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
+  <title>Chat Mistral</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="chat">
+    <header class="chat-header">
+      <h1>Chat Mistral</h1>
+      <span class="model">mistral-small-latest</span>
+    </header>
+
+    <div id="messages" class="messages" aria-live="polite"></div>
+
+    <form id="chat-form" class="chat-form">
+      <input
+        id="input"
+        type="text"
+        placeholder="Scrivi un messaggio…"
+        autocomplete="off"
+        maxlength="8000"
+        required
+      />
+      <button type="submit" id="send">Invia</button>
+    </form>
+  </main>
+
+  <div id="settings" class="settings hidden">
+    <div class="settings-box">
+      <h2>Configura la chiave API</h2>
+      <p>Inserisci la tua chiave <a href="https://console.mistral.ai/" title="https://console.mistral.ai/">console.mistral.ai</a>. Verrà salvata solo su questo computer.</p>
+      <form id="settings-form">
+        <input id="api-key" type="password" placeholder="MISTRAL_API_KEY" autocomplete="off" required />
+        <button type="submit">Salva e connetti</button>
+      </form>
+      <p id="settings-error" class="settings-error hidden"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
